@@ -1,0 +1,53 @@
+<%- include("header") -%>
+
+
+    <h1>Home</h1>
+
+    <p>
+        <%= home %>
+    </p>
+
+    <div style="margin-top: 30px; display: flex;  flex-direction: row ; ">
+        <div style="margin-right: 170px;">
+            <form action="/" method="post" class="form-inline mr-auto mb-4">
+                <input class="form-control mr-sm-4" name="search" style="width: 240px;" type="text" placeholder="Search blog by title" aria-label="Search">
+                <button class="btn btn-indigo btn-rounded btn-sm my-0 waves-effect waves-light"
+                    type="submit">Search</button>
+            </form>
+        </div>
+
+        <div>
+            <a href="/compose">
+            <button type="button" class="btn btn-lg btn-danger"  data-bs-toggle="popover"
+                data-bs-title="Popover title"
+                data-bs-content="And here's some amazing content. It's very engaging. Right?"> click to start writing </button>
+            </a>
+            </div>
+    </div>
+
+    <!-- <%for(let i=0; i<newposts.length ; i++){ %>
+       <div>
+           <h1>
+               <%= newposts[i].title  %>
+            </h1>
+           <p>
+               <%= newposts[i].content  %>
+            </p>
+       </div>
+ <%}%> -->
+    <div class="container">
+        <% newposts.forEach(element=> { %>
+            <div>
+                <h1>
+                    <%= element.posttitle %>
+                </h1>
+                <p>
+                    <%= element.postdesc.substring(0 , 130) %>
+                        <a href="/post/<%=element.posttitle%>">Read more</a>
+
+                </p>
+            </div>
+            <% });%>
+    </div>
+
+    <%- include("footer") -%>

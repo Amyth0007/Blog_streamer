@@ -1,0 +1,22 @@
+<%- include("header") -%>
+<%let shouldSkip = true;%>
+   <% if(reqspost.length>0){ %>
+    <% reqspost.forEach(element => {%>
+  
+      <%  if(element.posttitle=== reqstitle1){   %>
+            <h1><%= element.posttitle %></h1>
+            <p><%=   element.postdesc  %></p>
+            <%  shouldskip = false%>
+  
+      <%  } else { %>
+    
+    
+            <%shouldSkip = false%>
+              <%   }%>
+   <% });%>
+ <%}else{%>
+  <h1>Reasult not found</h1>
+  <h3>search correctly !!</h3>
+
+<%}%>
+<%- include("footer") -%>
